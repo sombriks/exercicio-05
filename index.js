@@ -19,7 +19,8 @@ var listaDePessoas = [
 ];
 
 app.get('/pessoas', function(req, res) {
-  res.send(listaDePessoas);
+//   res.send(listaDePessoas);
+  knex("pessoas").select().then((ret) => res.send(ret));
 });
 
 app.post('/pessoas', function(req, res) {
