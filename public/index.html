@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="exercicio">
+<head>
+	<meta charset="UTF-8">
+	<title>Exercicio 05</title>
+	<script src="lib/angular/angular.js"></script>
+	<script src="script.js"></script>
+</head>
+<body ng-controller="exercicioCtrl">
+	<div>
+		<h2 ng-bind="titulo"></h2>
+		<form name="pessoaForm" ng-submit="salvarPessoa(pessoa);">
+		<p>
+		<label for "pnid">Nome:</label>
+		<input type="text" name="nomepessoa" id="pnid" ng-model="pessoa.nome" placeholder="Nome" ng-required="true" />
+		</p><p>
+		<label for "ptid">Telefone:</label>
+		<input type="text" name="telefonepessoa" id="ptid" ng-model="pessoa.telefone" placeholder="Telefone" />
+		</p><p>
+		<label for "peid">Endereço:</label>
+		<input type="text" name="enderecopessoa" id="peid" ng-model="pessoa.endereco" placeholder="Endereço" />
+		</p><p>
+		<input type="submit" value="Adicionar pessoa" ng-disabled="pessoaForm.$invalid" />
+		</p>
+		</form>
+		<hr />
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Nome</th>
+			</tr>
+			<tr ng-repeat="pessoa in pessoas">
+				<td>{{pessoa.id}}</td>
+				<td>{{pessoa.nome}}</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

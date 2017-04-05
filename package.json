@@ -1,0 +1,30 @@
+{
+  "name": "exercicio05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "staging-dev": "NODE_EV=staging nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joicenunes/exercicio05.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joicenunes/exercicio05/issues"
+  },
+  "homepage": "https://github.com/joicenunes/exercicio05#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.2",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "knex": "^0.12.9",
+    "pg": "^6.1.5"
+  }
+}
