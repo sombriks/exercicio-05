@@ -3,15 +3,21 @@ angular.module("exercicio").controller("exercicioCtrl", function($scope, $http) 
 	$scope.titulo = "Exercicio 05";
 	$scope.pessoas = [];
 
-    var carregarContatos = function () {
-        $http.get("http://localhost:2017/pessoas").success(function (data) {
-            $scope.pessoas = data;
-        })};    
+    $scope.carregarContatos = function () {
+      $http.get("/pessoas").then(function (ret) {
+	if(ret.status!=200)
+	  throw ret;	
+        $scope.pessoas = ret.data;
+      });
+    };
+	
+    $scope.carregarContatos();	
 
     $scope.salvarPessoa = function(pessoa) {
-        $http.post("http://localhost:2017/pessoas", pessoa).success((data) => {
+        $http.post("/salvar", pessoa).then((data) => {
             alert("Salvo com sucesso!");
-            $scope.pessoas.push(angular.copy(data));
+	     $scope.carregarContatos();
             delete $scope.pessoa;
-    }
+        })
+    };
 });
